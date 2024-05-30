@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
+          python-version: '3.12'
 
       - name: Install dependencies
         run: |
@@ -24,7 +24,7 @@ jobs:
       
       - name: Deploy to GitHub Pages
         run: |
-          voila your_notebook.ipynb --no-browser --port=8000 &
+          voila interactive_analysis.ipynb --no-browser --port=8000 &
           npx http-server --port 8000
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
