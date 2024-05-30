@@ -16,16 +16,15 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.12'
+          python-version: '3.8'
 
       - name: Install dependencies
         run: |
           pip install voila jupyter
 
-      - name: Run Voila and Serve
+      - name: Run Voila
         run: |
           PORT=$(shuf -i 2000-65000 -n 1)
-          voila interactive_analysis.ipynb --no-browser --port=$PORT &
-          npx http-server --port $PORT
+          voila --port=$PORT --no-browser interactive_analysis_gass_prank_common.ipynb
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
