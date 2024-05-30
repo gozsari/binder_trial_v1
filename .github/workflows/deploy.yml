@@ -21,10 +21,11 @@ jobs:
       - name: Install dependencies
         run: |
           pip install voila jupyter
-      
-      - name: Deploy to GitHub Pages
+
+      - name: Run Voila and Serve
         run: |
-          voila interactive_analysis.ipynb --no-browser --port=8000 &
-          npx http-server --port 8000
+          PORT=$(shuf -i 2000-65000 -n 1)
+          voila interactive_analysis.ipynb --no-browser --port=$PORT &
+          npx http-server --port $PORT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
