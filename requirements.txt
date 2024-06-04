@@ -2,5 +2,3 @@ matplotlib
 seaborn
 ipywidgets
 pandas
-numpy
-voila
