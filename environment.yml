@@ -1,0 +1,10 @@
+name: interactive_env
+channels:
+  - defaults
+dependencies:
+  - matplotlib
+  - seaborn
+  - ipywidgets
+  - pandas
+  - numpy
+  - voila
